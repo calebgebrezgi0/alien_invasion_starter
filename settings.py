@@ -47,13 +47,11 @@ class Settings:
         self.fleet_drop_speed = 40
         self.alien_points = 50
 
-         # weapon modes: how many bullets per shot, ammo size, and speed
-        self.weapon_modes = {
-            'single': {'bullets_per_shot': 1, 'max_bullets': 5, 'speed_mult': 1.0},
-            'spread': {'bullets_per_shot': 3, 'max_bullets': 9, 'speed_mult': 1.0},
-            'rapid': {'bullets_per_shot': 1, 'max_bullets': 10, 'speed_mult': 1.5},
-        }
-        self.spread_angle = 12  # degrees between spread bullets
+         # fire rate: different types of bullet speed for the ship
+        self.normal_bullet_speed = 7
+        self.normal_bullet_amount = 5
+        self.rapid_bullet_speed = 14
+        self.rapid_bullet_amount = 10
 
 
     def increase_difficulty(self):
