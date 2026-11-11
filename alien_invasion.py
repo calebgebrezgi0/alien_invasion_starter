@@ -170,11 +170,17 @@ class AlienInvasion:
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = True
         elif event.key == pygame.K_SPACE:
-           if self.ship.fire():
-               self.laser_sound.play()
-               self.laser_sound.fadeout(250)
-  
-  
+            if self.ship.fire():
+                self.laser_sound.play()
+                self.laser_sound.fadeout(250)
+
+                
+        elif event.key == pygame.K_1:
+            self.settings.bullet_speed = self.settings.normal_bullet_speed
+            self.settings.bullet_amount = self.settings.normal_bullet_amount
+        elif event.key == pygame.K_2:
+            self.settings.bullet_speed = self.settings.rapid_bullet_speed
+            self.settings.bullet_amount = self.settings.rapid_bullet_amount
         elif event.key == pygame.K_q:
             self.running = False
             # self.game_stats.save_scores()
