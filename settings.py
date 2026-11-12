@@ -1,7 +1,17 @@
+"""
+Program Name: Alien Invasion - Track 1: Custom Mechanics
+Author: Caleb Gebrezgi
+Purpose: Stores all game settings
+Starter Code: https://github.com/calebgebrezgi0/alien_invasion_starter.git
+Date Updated: 11-12-2026
+"""
 from pathlib import Path
 class Settings:
+    """Holds the game's static and dynamic settings."""
 
     def __init__(self):
+        """Set values that do not change during play."""
+        # self.name: str = "Alien Invasion"
         self.name: str = "Alien Invasion - Track 1: Custom Mechanics"
         self.screen_w = 1200
         self.screen_h = 800
@@ -35,6 +45,7 @@ class Settings:
         self.font_file = Path(__file__).parent / 'Assets' / 'Fonts' / 'Silkscreen' / 'Silkscreen-Bold.ttf'
 
     def initialize_dynamic_settings(self):
+        """Set values that reset at the start of each game."""
         self.ship_speed = 5
         self.starting_ship_count = 3
 
@@ -47,7 +58,7 @@ class Settings:
         self.fleet_drop_speed = 40
         self.alien_points = 50
 
-         # fire rate: different types of bullet speed for the ship
+        # firing modes: normal (the original values) and rapid
         self.normal_bullet_speed = 7
         self.normal_bullet_amount = 5
         self.rapid_bullet_speed = 14
@@ -55,6 +66,7 @@ class Settings:
 
 
     def increase_difficulty(self):
+        """Scale up speeds when the player clears a level."""
         self.ship_speed *= self.difficulty_scale
         self.bullet_speed *= self.difficulty_scale
         self.fleet_speed *= self.difficulty_scale
