@@ -13,7 +13,7 @@ from settings import Settings
 from ship import Ship
 from arsenal import Arsenal
 # from alien import Alien
-# from alien_fleet import AlienFleet
+from alien_fleet import AlienFleet
 # from time import sleep
 # from button import Button
 # from hud import HUD
@@ -51,10 +51,10 @@ class AlienInvasion:
         # self.impact_sound.set_volume(0.7)
 
         self.ship = Ship(self, Arsenal(self))
-        # self.alien_fleet = AlienFleet(self)
+        self.alien_fleet = AlienFleet(self)
         # self.alien_fleet.create_fleet()
-        
-        
+
+
         # self.play_button = Button(self, 'Play')
         # self.game_active = False
         self.game_active = True  # [M1] start playing right away, no Play button yet
@@ -67,7 +67,7 @@ class AlienInvasion:
             self._check_events()
             if self.game_active:    
                 self.ship.update()
-                # self.alien_fleet.update_fleet()
+                self.alien_fleet.update_fleet()
                 # self._check_collisions()
             self.update_screen()
             self.clock.tick(self.settings.FPS)
@@ -127,7 +127,7 @@ class AlienInvasion:
         """Draw the background and ship, then refresh the display."""
         self.screen.blit(self.bg, (0, 0))
         self.ship.draw()
-        # self.alien_fleet.draw()
+        self.alien_fleet.draw()
         # self.HUD.draw()
 
         # if not self.game_active:
