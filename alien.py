@@ -1,3 +1,14 @@
+"""
+Program Name: Alien Invasion - Track 1: Custom Mechanics
+File: alien.py
+Author: Caleb Gebrezgi
+Purpose: Defines the Alien sprites for the fleet.
+Starter Code: https://github.com/calebgebrezgi0/alien_invasion_starter.git
+Date Updated: 11-25-2026
+"""
+
+
+
 import pygame
 from pygame.sprite import Sprite
 from typing import TYPE_CHECKING
