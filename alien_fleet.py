@@ -1,3 +1,14 @@
+"""
+Program Name: Alien Invasion - Track 1: Custom Mechanics
+File: alien_fleet.py
+Author: Caleb Gebrezgi
+Purpose: Builds the alien fleet.
+Starter Code: https://github.com/calebgebrezgi0/alien_invasion_starter.git
+Date Updated: 11-25-2026
+"""
+
+
+
 import pygame
 from alien import Alien
 from typing import TYPE_CHECKING
