@@ -70,3 +70,5 @@ class Settings:
         self.ship_speed *= self.difficulty_scale
         self.bullet_speed *= self.difficulty_scale
         self.fleet_speed *= self.difficulty_scale
+        self.normal_bullet_speed *= self.difficulty_scale
+        self.rapid_bullet_speed *= self.difficulty_scale
