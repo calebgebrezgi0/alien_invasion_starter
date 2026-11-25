@@ -1,3 +1,13 @@
+"""
+Program Name: Alien Invasion - Track 1: Custom Mechanics
+File: game_stats.py
+Author: Caleb Gebrezgi
+Purpose: Tracks the game's stats.
+Starter Code: https://github.com/calebgebrezgi0/alien_invasion_starter.git
+Date Updated: 11-25-2026
+"""
+
+
 # from pathlib import Path
 import json
 
