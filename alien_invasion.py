@@ -51,6 +51,8 @@ class AlienInvasion:
         self.impact_sound.set_volume(0.7)
 
         self.ship = Ship(self, Arsenal(self))
+        self.firing = False
+        self.last_shot = 0
         self.alien_fleet = AlienFleet(self)
         # self.alien_fleet.create_fleet()
 
@@ -67,6 +69,8 @@ class AlienInvasion:
             self._check_events()
             if self.game_active:    
                 self.ship.update()
+                if self.firing:
+                    self._fire_bullet()
                 self.alien_fleet.update_fleet()
                 self._check_collisions()
             self.update_screen()
@@ -155,12 +159,26 @@ class AlienInvasion:
     #     if self.play_button.check_clicked(mouse_pos):
     #         self.restart_game()
 
+
+
+
+    def _fire_bullet(self):
+        """Fire a bullet after a set amount of time."""
+        now = pygame.time.get_ticks()
+        if now - self.last_shot >= self.settings.fire_delay:
+            if self.ship.fire():
+                self.laser_sound.play()
+                self.laser_sound.fadeout(250)
+                self.last_shot = now
+
     def _check_keyup_events(self, event):
         """Stop ship movement when an arrow key is released."""
         if event.key == pygame.K_RIGHT:
             self.ship.moving_right = False
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = False
+        elif event.key == pygame.K_SPACE:
+            self.firing = False
 
     def _check_keydown_events(self, event):
         """Handle movement, firing, and quitting key presses."""
@@ -169,9 +187,24 @@ class AlienInvasion:
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = True
         elif event.key == pygame.K_SPACE:
-            if self.ship.fire():
-                self.laser_sound.play()
-                self.laser_sound.fadeout(250)
+            # if self.ship.fire():
+            #     self.laser_sound.play()
+            #     self.laser_sound.fadeout(250)
+            self.firing = True
+            self._fire_bullet()
+        elif event.key == pygame.K_1:
+            self.settings.bullet_speed = self.settings.normal_bullet_speed
+            self.settings.bullet_amount = self.settings.normal_bullet_amount
+            self.settings.fire_delay = self.settings.normal_fire_delay
+        elif event.key == pygame.K_2:
+            self.settings.bullet_speed = self.settings.rapid_bullet_speed
+            self.settings.bullet_amount = self.settings.rapid_bullet_amount
+            self.settings.fire_delay = self.settings.rapid_fire_delay
+        elif event.key == pygame.K_q:
+            self.running = False
+            # self.game_stats.save_scores()
+            pygame.quit()
+            sys.exit()
 
                 
         elif event.key == pygame.K_1:
