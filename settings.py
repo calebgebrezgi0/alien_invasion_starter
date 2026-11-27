@@ -64,6 +64,10 @@ class Settings:
         self.rapid_bullet_speed = 14
         self.rapid_bullet_amount = 10
 
+        self.normal_fire_delay = 400  
+        self.rapid_fire_delay = 100
+        self.fire_delay = self.normal_fire_delay
+
 
     def increase_difficulty(self):
         """Scale up speeds when the player clears a level."""
